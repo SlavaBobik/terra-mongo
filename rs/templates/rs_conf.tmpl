@@ -1,0 +1,8 @@
+rs.initiate( {
+   _id : "rstest",
+   members: [
+    %{ for index,ip in private_ips ~}
+        { _id: ${index}, host: "${ip}:27017" },
+    %{ endfor ~}
+   ]
+})
